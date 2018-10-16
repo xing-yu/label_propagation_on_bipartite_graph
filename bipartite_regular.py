@@ -83,10 +83,6 @@ def BGLabelPropagation(X, Y, offset, labeledANum, labeledBNum, epsilon = 1e-2, m
         Y_au_new = nextResult[0]
         Y_bu_new = nextResult[1]
 
-        print(np.abs(Y_au_new - Y_au).sum() + np.abs(Y_bu_new - Y_bu).sum())
-        #sys.stdout.write("%s"%str(np.abs(Y_au_new - Y_au).sum() + np.abs(Y_bu_new - Y_bu).sum()))
-        #sys.stdout.flush()
-
         if convergeCondition((nextResult), (Y_au, Y_bu)):
             converged = True
             return np.concatenate((Y_al, Y_au , Y_bl, Y_bu))
@@ -96,5 +92,6 @@ def BGLabelPropagation(X, Y, offset, labeledANum, labeledBNum, epsilon = 1e-2, m
 
         count += 1
 
+    # not converged after maximum iteration number
     if converged == False:
         return -1
