@@ -56,10 +56,10 @@ def BGLabelPropagation(X, Y, offset, labeledANum, labeledBNum, epsilon = 1e-2, m
     T_buau = X[offset + labeledBNum :, labeledANum : offset]
     
     # separate the class distribution
-    Y_al = Y[0 : labeledANum]
-    Y_au = Y[labeledANum : offset]
-    Y_bl = Y[offset : offset + labeledBNum]
-    Y_bu = Y[offset + labeledBNum : ]
+    Y_al = Y[0 : labeledANum, :]
+    Y_au = Y[labeledANum : offset, :]
+    Y_bl = Y[offset : offset + labeledBNum, :]
+    Y_bu = Y[offset + labeledBNum : , :]
     
     # propagation functions
     # Y_au = T_aubl.Y_bl + T_aubu.Y_bu
